@@ -28,7 +28,6 @@
 		}
 	</style>
 
-	<script type="text/javascript" src="js/box-generator.js"></script>
 
 	<!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
@@ -42,6 +41,33 @@
 
 <body>
 	<div class="red"></div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    	var colors = ["red", "blue", "green", "orange"];
+
+		$(document).on('click','div',function() { 
+			var randomColor = colors[Math.floor(Math.random() * colors.length)];
+			var newBox = $('<div></div>').addClass(randomColor);
+			$('body').append(newBox);
+		});
+
+
+		$(document).on("mouseenter", "div", function() {
+			console.log($(this).attr("class"))
+			if($(this).attr("class") === "red") {
+				$(this).css("background-color", "blue");
+			} else if ($(this).attr("class") === "blue") {
+				$(this).css("background-color", "green");
+			} else if ($(this).attr("class") === "green") {
+				$(this).css("background-color", "orange");
+			} else if ($(this).attr("class") === "orange") {
+				$(this).css("background-color", "red");
+			}
+			
+		}).on("mouseleave", "div", function() { 
+			$(this).removeAttr("style"); 
+		});
+    </script>
 </body>
 
 </html>
