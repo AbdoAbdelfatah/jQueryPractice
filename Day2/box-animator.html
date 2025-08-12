@@ -48,16 +48,20 @@
     <script>
     $(document).ready(function () {
         $(".box")
-            .animate({ left: "+=300" }, 2000,function(){
-				$(this).addClass("one"); // right
+            .animate({ left: "+=300", width: "300px",
+					height: "300px" }, 2000,function(){
+				$(this).addClass("one");
 			})  // right
-            .animate({ top: "+=300" }, 2000,function(){
+            .animate({ top: "+=300" , width: "100px",
+					height: "100px"}, 2000,function(){
 				$(this).addClass("two"); // down
 			})  // down
-            .animate({ left: "-=300" }, 2000,function(){
+            .animate({ left: "-=300" , width: "300px",
+					height: "300px"}, 2000,function(){
 				$(this).addClass("three"); // left
 			}) // left
-            .animate({ top: "-=300" }, 2000,function(){
+            .animate({ top: "-=300" , width: "100px",
+					height: "100px"}, 2000,function(){
 				$(this).addClass("box"); // up
 			}) ; // up
     });
