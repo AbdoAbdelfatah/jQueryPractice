@@ -4,6 +4,12 @@
 <head>
 	<title>Font Resizer</title>
 	<style type="text/css">
+		body {
+			display: inline-block;
+		    padding: 300px;
+			padding-left: 850px;
+			 
+		}
 		.box {
 			width: 100px;
 			height: 100px;
@@ -14,10 +20,11 @@
 		button {
 			padding: 10px 20px 10px 20px;
 		}
+		 
+		 
 	</style>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-
-	<script type="text/javascript" src="js/font-resizer.js"></script>
+ 
 
 	<!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
@@ -35,6 +42,31 @@
 	<button id="increase"> + </button>
 	<br>
 	<p class="error"></p>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+		$('#decrease').click(function() {
+			var currentSize = parseInt($('.content').css('font-size'));	
+			if (currentSize > 10) {
+				$('.content').css('font-size', (currentSize - 2) + 'px'); 
+			} else {						
+				$('.error').text('Font size cannot be DECREASED');
+				$('.error').css("color", "red");
+				 
+			}
+		});	
+
+		$('#increase').click(function() {
+			var currentSize = parseInt($('.content').css('font-size'));	
+			if (currentSize < 50) {
+				$('.content').css('font-size', (currentSize + 2) + 'px'); 
+			} else {						
+				$('.error').text('Font size cannot be INCREASED');
+				$('.error').css("color", "green");
+				 
+			}
+		});
+    </script>
 </body>
 
 </html>
